@@ -16,11 +16,17 @@ int main(void)
     while (1)
     {
         write(1, "$ ", 2);
-	numRead = 0;
         numRead = getline(&line, &size, stdin);
+        if (strcmp(line, "exit\n") == 0)
+        {
+            free(line);
+            break;
+        }
+
         args = malloc(sizeof(char *) * 1024);
         token = strtok(line, " \t\n");
-        while(token)
+        i = 0;
+        while (token)
         {
             args[i] = token;
             token = strtok(NULL, " \t\n");
@@ -34,14 +40,16 @@ int main(void)
             if (execve(args[0], args, NULL) == -1)
             {
                 perror("execve");
+                exit(EXIT_FAILURE);
             }
-            
         }
         else
+        {
             wait(&stat);
-        i = 0;
+        }
         free(args);
-        
     }
 
+
+    return (numRead);
 }
