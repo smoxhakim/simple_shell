@@ -18,7 +18,7 @@ extern char **environ;
 
 /*built in functions*/
 int get_built_in(char *str);
-int built_in(char *command, char *free_line, int process_status);
+int built_in(char *command, char *free_line, int proces_stat);
 void printEnv(void);
 
 /*memory fuctions*/
@@ -29,8 +29,8 @@ char **createBuffer(int num_args, char *command);
 char *full_path(char *file_name);
 
 /*command line and execution functions*/
-char *trimSpaces(char *old_line);
-int Executefile(char *command_line, char *nameof);
+char *trimSpaces(char *previous_line);
+int Executefile(char *command_line, char *programName);
 int countArguments(char *line);
 char *findComment(char *command_line);
 

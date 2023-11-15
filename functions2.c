@@ -1,18 +1,18 @@
 #include "main.h"
 /**
  * _strncmp - compares two strings
- * @f_str: the first string
- * @s_str: the second string
+ * @str1: the first string
+ * @str2: the second string
  * @n: the index
  * Return: 0 on success, -1 on error
 */
-int _strncmp(char *f_str, char *s_str, int n)
+int _strncmp(char *str1, char *str2, int n)
 {
 	int i = 0;
 
 	while (i < n)
 	{
-	if (f_str[i] != s_str[i])
+	if (str1[i] != str2[i])
 		return (-1);
 	i++;
 	}

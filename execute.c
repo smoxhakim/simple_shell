@@ -2,10 +2,10 @@
 /**
  * Executefile - executes the specified file.
  * @command_line: the file to execute.
- * @nameof: the first argv of main.
+ * @programName: the first argv of main.
  * Return: the status of the last process.
 */
-int Executefile(char *command_line, char *nameof)
+int Executefile(char *command_line, char *programName)
 {
 	pid_t pid;
 	char **args = NULL, **env = environ, *path;
@@ -32,7 +32,7 @@ int Executefile(char *command_line, char *nameof)
 		}
 		else
 		{
-			write(STDERR_FILENO, nameof, strlen(nameof));
+			write(STDERR_FILENO, programName, strlen(programName));
 			write(STDERR_FILENO, ": 1: ", 5);
 			write(STDERR_FILENO, args[0], strlen(args[0]));
 			write(STDERR_FILENO, ": not found\n", 12);
@@ -51,7 +51,7 @@ int Executefile(char *command_line, char *nameof)
 */
 char *full_path(char *file_name)
 {
-	char right_path[BUFF_SIZE], *ptr_path, **env = environ, *paths, *f_paths;
+	char path[BUFF_SIZE], *ptr_path, **env = environ, *paths, *f_paths;
 	int i = 0;
 
 	if (access(file_name, F_OK) == 0)
@@ -64,9 +64,9 @@ char *full_path(char *file_name)
 			f_paths = strtok(paths, ":");
 			while (f_paths)
 			{
-				ptr_path = _strcpy(right_path, f_paths);
-				ptr_path = _strcat(right_path, "/");
-				ptr_path = _strdup(_strcat(right_path, file_name));
+				ptr_path = _strcpy(path, f_paths);
+				ptr_path = _strcat(path, "/");
+				ptr_path = _strdup(_strcat(path, file_name));
 				if (access(ptr_path, X_OK) == 0)
 				{
 					free(paths);

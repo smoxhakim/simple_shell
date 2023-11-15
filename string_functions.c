@@ -23,17 +23,17 @@ int _strlen(char *str)
  */
 int countArguments(char *line)
 {
-	int i = 0, srch_spc = 1, num_args = 0;
+	int i = 0, search_spc = 1, num_args = 0;
 
 	while (line[i] != '\0')
 	{
-		if (line[i] != ' ' && srch_spc == 1)
+		if (line[i] != ' ' && search_spc == 1)
 		{
 			num_args++;
-			srch_spc = 0;
+			search_spc = 0;
 		}
 		if (line[i + 1] == ' ')
-			srch_spc = 1;
+			search_spc = 1;
 		i++;
 	}
 	return (num_args);

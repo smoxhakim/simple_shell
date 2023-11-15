@@ -38,13 +38,13 @@ int main(int argc __attribute__((unused)), char *argv[])
 /**
  * trimSpaces - ignores surrounded spaces
  * in the command line
- * @old_line: command line
+ * @previous_line: command line
  * Return: command line after the
  * spaces are removed.
 */
-char *trimSpaces(char *old_line)
+char *trimSpaces(char *previous_line)
 {
-	char *end_line, *new_line = old_line;
+	char *end_line, *new_line = previous_line;
 
 	while (*new_line == ' ')
 		new_line++;
@@ -63,17 +63,17 @@ char *trimSpaces(char *old_line)
  */
 char **createBuffer(int num_args, char *command)
 {
-	char **args, *delimiter = " ", *args_use;
+	char **args, *delim = " ", *args_use;
 	int i = 0;
 
 	args = malloc((num_args + 1) * sizeof(char *));
 	if (!args)
 		return (NULL);
-	args_use = strtok(command, delimiter);
+	args_use = strtok(command, delim);
 	while (args_use != NULL)
 	{
 	args[i] = _strdup(args_use);
-	args_use = strtok(NULL, delimiter);
+	args_use = strtok(NULL, delim);
 	i++;
 	}
 	args[i] = NULL;

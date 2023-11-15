@@ -4,20 +4,20 @@
  * is a built-in.
  * @command: the command to check
  * @free_line: line to free if its an exit command
- * @process_status: the status of the last process
+ * @proces_stat: the status of the last process
  * Return: 1 on success, 0 on failure
 */
-int built_in(char *command, char *free_line, int process_status)
+int built_in(char *command, char *free_line, int proces_stat)
 {
-	int check_for_built_in;
+	int is_built_in;
 
-	check_for_built_in = get_built_in(command);
-	if (check_for_built_in == 0)
+	is_built_in = get_built_in(command);
+	if (is_built_in == 0)
 	{
 		free(free_line);
-		exit(WEXITSTATUS(process_status));
+		exit(WEXITSTATUS(proces_stat));
 	}
-	else if (check_for_built_in == 1)
+	else if (is_built_in == 1)
 	{
 		printEnv();
 		return (1);
