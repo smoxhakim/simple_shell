@@ -28,6 +28,7 @@ int main(void)
 		executeCommand(args);
 
 		free(args);
+		free(line);
 	}
 
 	return (numRead);
