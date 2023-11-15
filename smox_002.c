@@ -10,7 +10,8 @@ int main(void)
     char **args = NULL;
     char *token, *line = NULL;
     size_t size = 0;
-    int numRead, stat, i = 0;
+    size_t numRead;
+    int stat, i = 0;
     pid_t pid;
 
     while (1)

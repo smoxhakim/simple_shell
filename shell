@@ -15,7 +15,7 @@ int main(void)
 	{
 		write(STDOUT_FILENO, "$ ", 2);
 		numRead = getline(&line, &size, stdin);
-		if (numRead >= 0 )
+		if (numRead >= 0)
 		{
 			args[0] = line;
 			line[numRead - 1] = '\0';
@@ -27,7 +27,6 @@ int main(void)
 					break;
 				}
 			}
-
 			if (pid == 0)
 			{
 				execve(line, args, NULL);
@@ -36,7 +35,6 @@ int main(void)
 			{
 				wait(&stat);
 			}
-
 			free(line);
 			line = NULL;
 		}

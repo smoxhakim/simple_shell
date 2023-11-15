@@ -16,7 +16,6 @@ int main(void)
     while (1)
     {
         write(1, "$ ", 2);
-	numRead = 0;
         numRead = getline(&line, &size, stdin);
         args = malloc(sizeof(char *) * 1024);
         token = strtok(line, " \t\n");
@@ -35,13 +34,13 @@ int main(void)
             {
                 perror("execve");
             }
-            
+
         }
         else
             wait(&stat);
         i = 0;
         free(args);
-        
+
     }
 
 }
