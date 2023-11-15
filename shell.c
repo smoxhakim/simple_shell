@@ -1,15 +1,15 @@
 #include "main.h"
 /**
- * main - simpel shell.
+ * main - entry point
  * @argc: number of args
- * @argv: pointer to array of string of arguments
+ * @argv: args
  * Return: 0 always
 */
 int main(int argc __attribute__((unused)), char *argv[])
 {
 	size_t len;
 	char *line = NULL, *command;
-	int nr, loop = 0, statu = 0;
+	int nr, loop = 0, status = 0;
 
 	while (1)
 	{
@@ -20,8 +20,8 @@ int main(int argc __attribute__((unused)), char *argv[])
 		{
 			line[nr - 1] = '\0';
 			command = ignore_spaces(line);
-			if (!built_in(command, line, statu))
-				statu = super_execute(command, argv[0]);
+			if (!built_in(command, line, status))
+				status = super_execute(command, argv[0]);
 			free(line);
 			line = NULL;
 		}
@@ -36,9 +36,10 @@ int main(int argc __attribute__((unused)), char *argv[])
 }
 
 /**
- * ignore_spaces - ignore surrounded spaces in command
+ * ignore_spaces - ignore surrounded spaces in
+ * the command line
  * @old_line: command line
- * Return: command line after remove spaces
+ * Return: command line after the spaces are removed
 */
 char *ignore_spaces(char *old_line)
 {
@@ -53,7 +54,8 @@ char *ignore_spaces(char *old_line)
 	return (new_line);
 }
 /**
- * allocate_buffer - allocate memory for args
+ * allocate_buffer - allocates memory
+ * for args
  * @num_args: number of args
  * @command: command line
  * Return: args
@@ -77,8 +79,8 @@ char **allocate_buffer(int num_args, char *command)
 	return (args);
 }
 /**
- * special_free - free all memo
- * @args: pointe to pointer
+ * special_free - free all memory
+ * @args: args
  */
 void special_free(char **args)
 {
