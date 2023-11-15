@@ -19,9 +19,9 @@ int main(int argc __attribute__((unused)), char *argv[])
 		if (nr >= 0)
 		{
 			line[nr - 1] = '\0';
-			command = ignore_spaces(line);
+			command = trimSpaces(line);
 			if (!built_in(command, line, status))
-				status = super_execute(command, argv[0]);
+				status = Executefile(command, argv[0]);
 			free(line);
 			line = NULL;
 		}
@@ -36,13 +36,13 @@ int main(int argc __attribute__((unused)), char *argv[])
 }
 
 /**
- * ignore_spaces - ignores surrounded spaces
+ * trimSpaces - ignores surrounded spaces
  * in the command line
  * @old_line: command line
  * Return: command line after the
  * spaces are removed.
 */
-char *ignore_spaces(char *old_line)
+char *trimSpaces(char *old_line)
 {
 	char *end_line, *new_line = old_line;
 
@@ -55,13 +55,13 @@ char *ignore_spaces(char *old_line)
 	return (new_line);
 }
 /**
- * allocate_buffer - allocates memory
+ * createBuffer - allocates memory
  * for args
  * @num_args: number of args
  * @command: command line
  * Return: args
  */
-char **allocate_buffer(int num_args, char *command)
+char **createBuffer(int num_args, char *command)
 {
 	char **args, *delimiter = " ", *args_use;
 	int i = 0;
@@ -80,10 +80,10 @@ char **allocate_buffer(int num_args, char *command)
 	return (args);
 }
 /**
- * special_free - free all memory
+ * customFree - free all memory
  * @args: arguments
  */
-void special_free(char **args)
+void customFree(char **args)
 {
 	int i = 0;
 

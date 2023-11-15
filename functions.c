@@ -19,16 +19,16 @@ int built_in(char *command, char *free_line, int process_status)
 	}
 	else if (check_for_built_in == 1)
 	{
-		puts_env();
+		printEnv();
 		return (1);
 	}
 	return (0);
 }
 
 /**
- * puts_env - prints all the environment variables
+ * printEnv - prints all the environment variables
 */
-void puts_env(void)
+void printEnv(void)
 {
 	int i;
 
@@ -40,12 +40,12 @@ void puts_env(void)
 }
 
 /**
- * look_for_comment - examines the provided
+ * findComment - examines the provided
  * line for a comment.
  * @command_line: the input command line.
  * Return: the processed command line.
 */
-char *look_for_comment(char *command_line)
+char *findComment(char *command_line)
 {
 	int i = 0;
 

@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * super_execute - executes the specified file.
+ * Executefile - executes the specified file.
  * @command_line: the file to execute.
  * @nameof: the first argv of main.
  * Return: the status of the last process.
 */
-int super_execute(char *command_line, char *nameof)
+int Executefile(char *command_line, char *nameof)
 {
 	pid_t pid;
 	char **args = NULL, **env = environ, *path;
@@ -13,9 +13,9 @@ int super_execute(char *command_line, char *nameof)
 
 	if (*command_line != '\0' && *command_line != '#')
 	{
-		command_line = look_for_comment(command_line);
-		num_args = count_args(command_line);
-		args = allocate_buffer(num_args, command_line);
+		command_line = findComment(command_line);
+		num_args = countArguments(command_line);
+		args = createBuffer(num_args, command_line);
 		path = full_path(args[0]);
 		if (path != NULL)
 		{
@@ -39,7 +39,7 @@ int super_execute(char *command_line, char *nameof)
 		}
 		if (path != args[0])
 			free(path);
-		special_free(args);
+		customFree(args);
 	}
 	return (stat);
 }
@@ -58,7 +58,7 @@ char *full_path(char *file_name)
 		return (file_name);
 	while (env[i] != NULL)
 	{
-		if (our_strncmp(env[i], "PATH=", 5) == 0)
+		if (_strncmp(env[i], "PATH=", 5) == 0)
 		{
 			paths = _strdup(env[i] + 5);
 			f_paths = strtok(paths, ":");

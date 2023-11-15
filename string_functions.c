@@ -16,12 +16,12 @@ int _strlen(char *str)
 	return (len);
 }
 /**
- * count_args - counts arguments from
+ * countArguments - counts arguments from
  * the command line
  * @line: command line
  * Return: number of arguments
  */
-int count_args(char *line)
+int countArguments(char *line)
 {
 	int i = 0, srch_spc = 1, num_args = 0;
 
