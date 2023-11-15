@@ -36,10 +36,11 @@ int main(int argc __attribute__((unused)), char *argv[])
 }
 
 /**
- * ignore_spaces - ignore surrounded spaces in
- * the command line
+ * ignore_spaces - ignores surrounded spaces
+ * in the command line
  * @old_line: command line
- * Return: command line after the spaces are removed
+ * Return: command line after the
+ * spaces are removed.
 */
 char *ignore_spaces(char *old_line)
 {
@@ -80,7 +81,7 @@ char **allocate_buffer(int num_args, char *command)
 }
 /**
  * special_free - free all memory
- * @args: args
+ * @args: arguments
  */
 void special_free(char **args)
 {

@@ -1,11 +1,10 @@
 #include "main.h"
 /**
- * our_strncmp - compare two strings
- * @f_str: first string
- * @s_str: second string
+ * our_strncmp - compares two strings
+ * @f_str: the first string
+ * @s_str: the second string
  * @n: the index
- * Return: 0 on success
- * and -1 on error
+ * Return: 0 on success, -1 on error
 */
 int our_strncmp(char *f_str, char *s_str, int n)
 {
@@ -20,9 +19,9 @@ int our_strncmp(char *f_str, char *s_str, int n)
 	return (0);
 }
 /**
- * get_built_in - get built in commands
- * @str: commands
- * Return: 0
+ * get_built_in - retrieves built-in commands.
+ * @str: command string.
+ * Return: 0.
  */
 int get_built_in(char *str)
 {

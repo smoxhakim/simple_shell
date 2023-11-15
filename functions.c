@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * built_in - check for built_in command.
- * @command: command to check.
- * @free_line: line to free if is an exit command.
- * @process_status: the status of the last process.
- * Return: 1 on success.
- * on fails 0 returned.
+ * built_in - examines if the command
+ * is a built-in.
+ * @command: the command to check
+ * @free_line: line to free if its an exit command
+ * @process_status: the status of the last process
+ * Return: 1 on success, 0 on failure
 */
 int built_in(char *command, char *free_line, int process_status)
 {
@@ -26,7 +26,7 @@ int built_in(char *command, char *free_line, int process_status)
 }
 
 /**
- * puts_env - print all the envirement variables.
+ * puts_env - prints all the environment variables
 */
 void puts_env(void)
 {
@@ -40,9 +40,10 @@ void puts_env(void)
 }
 
 /**
- * look_for_comment - checks for comment.
- * @command_line: the command line.
- * Return: command line.
+ * look_for_comment - examines the provided
+ * line for a comment.
+ * @command_line: the input command line.
+ * Return: the processed command line.
 */
 char *look_for_comment(char *command_line)
 {

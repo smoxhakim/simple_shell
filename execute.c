@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * super_execute - execute the file
- * @command_line: the file to execute
- * @nameof: first argv of main
- * Return: the status of the last process
+ * super_execute - executes the specified file.
+ * @command_line: the file to execute.
+ * @nameof: the first argv of main.
+ * Return: the status of the last process.
 */
 int super_execute(char *command_line, char *nameof)
 {
@@ -45,9 +45,9 @@ int super_execute(char *command_line, char *nameof)
 }
 
 /**
- * full_path - give the full path
- * @file_name: the file to looking for
- * Return:a pointer the path of the file
+ * full_path - provides the full path of a file
+ * @file_name: the file to look for
+ * Return: pointer to the path of the file
 */
 char *full_path(char *file_name)
 {

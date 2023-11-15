@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * _strlen - to know the len of string
- * @str: the pointer which point to an string
- * Return: len
+ * _strlen - determines the length of a string
+ * @str: the pointer pointing to a string
+ * Return: length of the string
 */
 int _strlen(char *str)
 {
@@ -16,9 +16,10 @@ int _strlen(char *str)
 	return (len);
 }
 /**
- * count_args - count argummants from command line
- * @line: cmd line
- * Return: num of args
+ * count_args - counts arguments from
+ * the command line
+ * @line: command line
+ * Return: number of arguments
  */
 int count_args(char *line)
 {
@@ -39,9 +40,9 @@ int count_args(char *line)
 }
 
 /**
- * _strdup - duplicates a string to an other one
+ * _strdup - duplicates a string to another one
  * @str: the string
- * Return: buff
+ * Return: buffer
  */
 char *_strdup(char *str)
 {
@@ -65,10 +66,10 @@ char *_strdup(char *str)
 }
 
 /**
- * _strcpy - copy the string to the other.
- * @src: The from string
- * @dest: The to string
- * Return: On success the to string.
+ * _strcpy - copies a string to another
+ * @src: The source string
+ * @dest: The destination string
+ * Return: On success, the destination string
 */
 char *_strcpy(char *dest, char *src)
 {
@@ -82,10 +83,10 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strcat - concat string to other
- * @dest: The string to.
- * @src: The string from.
- * Return: On success the string.
+ * _strcat - concat a string to another
+ * @dest: The destination string
+ * @src: The source string
+ * Return: On success, the resulting string
  */
 char *_strcat(char *dest, char *src)
 {
