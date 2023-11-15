@@ -40,7 +40,7 @@ int main(void)
         {
             if (execve(args[0], args, NULL) == -1)
             {
-                perror("execve");
+                perror("./shell");
                 exit(EXIT_FAILURE);
             }
         }
